@@ -68,6 +68,9 @@ class mcollective (
 
   # client-specific
   $client_config_file  = undef, # default dependent on $confdir
+  $client_config_owner = 'root',
+  $client_config_group = '0',
+  $client_config_mode  = '0444',
   $client_logger_type  = 'console',
   $client_loglevel     = 'warn',
   $client_package      = 'mcollective-client',

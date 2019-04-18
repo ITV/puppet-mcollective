@@ -7,7 +7,11 @@ class mcollective::client {
   }
 
   contain ::mcollective::client::install
-  contain ::mcollective::client::config
+  class{ '::mcollective::client::config':
+    owner => $::mcollective::client_config_owner,
+    group => $::mcollective::client_config_group,
+    mode  => $::mcollective::client_config_mode,
+  }
 
   Class['mcollective::client::install']
   -> Class['mcollective::client::config']
